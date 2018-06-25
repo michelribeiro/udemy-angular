@@ -5,6 +5,19 @@
 <section class="content">
 
   <div class="jumbotron welcome-jumbotron">
+
+      <a (click)="boletoShow()">Boleto</a>
+      <a (click)="debitoShow()">Debito</a>
+  
+      <div class="opcao" *ngIf="boleto">
+        <h3>campos da opcao BOLETO</h3>
+      </div>
+  
+      <div class="opcao2" *ngIf="debito">
+        <h3>campos da opcao DEBITO</h3>
+      </div>
+
+
      <h1>Bem vindo ao Meat!</h1>
      <p>
        Está com fome? Peça e receba em casa.
