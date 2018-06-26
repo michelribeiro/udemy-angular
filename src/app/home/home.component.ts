@@ -6,22 +6,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public boleto: boolean = false
-  public debito: boolean = false
+  lista = [
+    {name: 'link 1'},
+    {name: 'link 2'}
+  ]
+  
+  public current;
+
+  public selectDia(event: any, item: any) {
+    this.current = item.name
+  }
+  
+  
 
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  boletoShow():void {
-    this.boleto = !this.boleto
-  }
-
-  debitoShow(): void {
-    this.debito = !this.debito
-  }
-
 
 }
