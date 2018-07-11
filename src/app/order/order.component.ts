@@ -14,6 +14,11 @@ import {Router} from '@angular/router'
 })
 export class OrderComponent implements OnInit {
 
+  public debito:boolean;
+  public boleto:boolean;
+  public debitoEboleto: boolean;
+  
+
   orderForm: FormGroup
 
   delivery: number = 8
@@ -23,9 +28,9 @@ export class OrderComponent implements OnInit {
 
 
   paymentOptions: RadioOption[] = [
-    {label: "Dinheiro", value:"MON"},
-    {label: "Cartão de Débito", value:"DEB"},
-    {label: "Cartão Refeição", value:"REF"}
+    {label: "Dinheiro", value:"1"},
+    {label: "Cartão de Débito", value:"2"},
+    {label: "Cartão Refeição", value:"3"}
   ]
 
   constructor(private orderService: OrderService,
@@ -42,7 +47,9 @@ export class OrderComponent implements OnInit {
       address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
-      paymentOption: this.formBuilder.control('', [Validators.required])
+      paymentOption: this.formBuilder.control('', [Validators.required]),
+      primeiraParcela: [''],
+      demaisParcelas: ['']
     },
     {validator: OrderComponent.equalsTo})
 
@@ -91,6 +98,15 @@ export class OrderComponent implements OnInit {
     })
 
     console.log(order)
+  }
+
+  passaValue(item:any) {
+    item === '1' ? (this.debito = true, this.debitoEboleto = true) : null
+  }
+
+  passaValueDemais(item:any) {
+    item === '1' ? (this.debito = true, this.debitoEboleto = true) : null
+    item === '2' ? this.boleto = true : null
   }
 
 }

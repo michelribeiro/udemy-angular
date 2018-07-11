@@ -2,7 +2,18 @@
 <section class="content-header">
   <h1>
     Todos os Restaurantes
+    <a class="pull-right" (click)='toogleSearch()'><i class="fa fa-search"></i></a>
   </h1>
+  
+  <div class="row">
+    <div class="col-md-12 search-bar" [@toogleSearch]="searchBarState">
+      <form [formGroup]="searchForm">
+        <div class="form-group">
+          <input type="text" formControlName="searchControl" placeholder="O que deseja buscar?" class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
 
 
