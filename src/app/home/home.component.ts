@@ -6,6 +6,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  formasPagamento = [
+    {
+      id: 1,
+      nome: "Boleto bancário",
+      tipoParcela: 1
+    },
+    {
+      id: 1,
+      nome: "Boleto bancário",
+      tipoParcela: 2
+    },
+    {
+      id: 3,
+      nome: "Débito em conta",
+      tipoParcela: 2
+    }
+  ]
+
   
   public current;
 
